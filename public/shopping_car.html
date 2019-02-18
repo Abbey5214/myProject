@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/shopping_car.css">
+</head>
+<body>
+    <!--顶端-->
+    <header id="header"></header>
+    <!-- 购物车 -->
+    <main>
+        <!-- 导航 -->
+        <div class="shopping_nav">
+            <a href="http://127.0.0.1:5500/index.html">首页</a>
+            <span> > </span> 购物车
+        </div>
+
+        <!-- 商品：头 身体 脚 -->
+        <div class="car_product">
+            
+            <!-- 头 -->
+            <div class="car_pro_head">
+                <ul >
+                    <li>商品名称</li>
+                    <li>单价</li>
+                    <li>数量</li>
+                    <li>操作</li>
+                </ul>
+            </div>
+
+            <!-- 身体 -->
+            <div class="car_pro_item">
+                <div class="item_product">
+                    <ul>
+                        <li class="product_check">
+                            <label for="">
+                                <input type="checkbox" class="check_change">
+                                <span class="check_choose"></span>
+                            </label>
+                        </li>
+                        <li class="product_img">
+                            <a href="http://127.0.0.1:5500/product.html?lid=1">
+                                <img src="image/1952e_7384.png" alt="">
+                            </a>
+                        </li>
+                        <li class="product_title">
+                            <h5>Full love浓情鲜花系列19枝苏醒玫瑰+2枝粉色桔梗</h5>
+                            <p>商品类型: 9枝紫红色康乃馨+10枝粉色多头康乃馨</p>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="item_price">
+                    <p>¥188.00</p>
+                </div>
+
+                <div class="item_num">
+                    <a href="">-</a>
+                    <input type="text" value="1">
+                    <a href="">+</a>
+                </div>
+
+
+                <div class="item_delete">
+                    <a href="">删除</a>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+            <!-- 合计 -->
+            <div class="car_pro_add">
+                <ul>
+                    <li class="product_allcheck">
+                        <label for="">
+                            <input type="checkbox" class="all_check">
+                            <span class="all_choose"></span>
+                            全选
+                        </label>
+                    </li>
+
+                    <li class="car_num">
+                        已选商品<span>1</span>件
+                    </li>
+                    <li class="car_all">
+                        总计 : 
+                        <label for="">
+                            ￥<span>225.00</span>
+                        </label>
+                    </li>
+                    <li class="buy_all">
+                        <a href="">结算</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="height:60px">
+
+        </div>
+        <!-- 相似推荐 -->
+        <div>
+
+        </div>
+
+    </main>
+
+
+    <!--bottom-->
+    <footer id="footer"></footer>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/shopping_car.js"></script>
+</body>
+</html>

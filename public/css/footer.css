@@ -1,0 +1,192 @@
+*{margin: 0;padding: 0;}
+li{list-style-type: none;}
+#foot{
+    background:#eee;
+    width: 100%;
+    float: left;
+    padding-bottom: 50px;
+}
+.foot_top{
+    width:1200px;
+    height:87px;
+    font-size: 12px;
+    margin: 0 auto;
+    border-bottom: 1px solid #d3d3d3;
+}
+.icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url(../image/icon.png);
+    background-repeat: no-repeat;
+}
+.foot_top ul {
+    margin:0px 40px;
+}
+.foot_top ul li{
+    width: 150px;
+    line-height: 28px;
+    float: left;
+    margin-top:34px;
+}
+.foot_top ul li a {
+    text-decoration: none;
+    color: #333;
+}
+.foot_top ul li a:hover{
+    color:#ff3129;
+    cursor: pointer;
+    text-decoration: none;
+}
+.ft_01{
+    background-position: 0 -56px;
+}
+.ft_02{
+    background-position: -28px -56px;
+}
+.ft_03{
+    background-position: -56px -56px;
+}
+.ft_04{
+    background-position: -84px -56px;
+}
+.ft_05{
+    background-position: -112px -56px;
+}
+.ft_06{
+    background-position:-140px -56px;
+}
+.ft_07{
+    background-position: -168px -56px;
+}
+.foot_body{
+    width: 1200px;
+    height:300px;
+    margin: 0 auto;
+}
+.foot_body h5{
+    height: 55px;
+    font-size: 20px;
+    color: #333;
+}
+.ft_h60{
+    height:60px}
+.fb_01{width: 351px;
+    height: 240px;
+    margin-left: 20px;
+    border-right: 1px solid #5a5a5a;
+    float: left;}
+.fb_01 dl{
+    width: 100px;
+    float: left;
+}
+.fb_01 dl dt {
+    font-weight: normal;
+    height: 35px;
+    font-size: 14px;
+    color: #333;
+}
+.fb_01 dl dd {
+    line-height: 22px;
+    font-size: 12px;
+    font-style: normal;
+}
+.fb_01 dl dd a {
+    color: #999;
+    text-decoration: none;
+}
+.fb_01 .fb_w150{
+    width: 150px;
+}
+.fb_02{
+    width: 270px;
+    height: 240px;
+    margin-left: 40px;
+    border-right: 1px solid #5a5a5a;
+    float: left;
+}
+.fb_02 ul li {
+    width: 80px;
+    line-height: 30px;
+    font-size: 13px;
+    float: left;
+}
+.fb_02 ul li a{
+    color: #777;
+    text-decoration:none;
+}
+.fb_03{
+    width: 270px;
+    margin-left: 40px;
+    float: left;
+}
+.fb_phone{
+    height: 40px;
+    font-size: 15px;
+    color: #777;
+}
+.fb_phone span {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+.cservice{
+    height: 45px;
+}
+.service_time{
+    font-size: 12px;
+    color: #777;
+}
+.fb_04{
+    width: 150px;
+    float: left;}
+.note{
+    line-height: 25px;
+    font-size: 12px;
+    color: #333;
+}
+.qr_code img{
+    text-align: center;
+    height: 130px;
+    margin-top: 10px;}
+.fb04_a{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.foot_bottom{
+    width: 1200px;
+    margin: 0 auto;
+}
+.foot_bottom p{
+    margin-top: 50px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+}
+.foot_bottom ul{
+    width: 330px;
+    margin: 20px auto;
+}
+.foot_bottom ul li{
+    width: 83px;
+    height: 30px;
+    margin: 0 13px;
+    float: left;
+}
+.foot_bottom ul li a {
+    width: 83px;
+    height: 30px;
+    line-height: 90px;
+    display: block;
+    overflow: hidden;
+    background-image: url(../image/copyright.png);
+    background-repeat: no-repeat;
+}
+.img01 a{background-position: 0 0;;}
+.img02 a{background-position: 0 -30px;}
+.img03 a{background-position: 0 -60px;}

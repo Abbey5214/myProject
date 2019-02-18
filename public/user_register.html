@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1"/>-->
+    <!--<link rel="stylesheet" href="../../css/bootstrap.css"/>-->
+    <!--<script src="../../../JS/jquery.min.js"></script>-->
+    <!--<script src="../../../JS/popper.min.js"></script>-->
+    <!--<script src="../../../JS/bootstrap.min.js"></script>-->
+    <!--<link rel="stylesheet" href="css/header.css">-->
+    <link rel="stylesheet" href="css/user.css">
+    <title>登录&注册</title>
+</head>
+<body>
+<header id="header"></header>
+<main id="login">
+    <div class="login_w">
+        <div class="user_login">
+            <div class="login_box login_user">    <!-- 登录 -->
+                <div class="box_top">
+                    <ul >
+                        <li><a href="javascript:;" class="login_in">登录</a></li>
+                        <li><a href="javascript:;" class="login_in">注册</a></li>
+                    </ul>
+                </div>
+                <div class="box_body">
+                    <div class="box_phone">
+                        <div class="prompt"></div>
+                        <a href="">使用手机验证码登录</a>
+                    </div>
+                    <div class="box_input" id="use_login"><!-- 登录 -->
+                        <ul>
+                            <li class="box_input01" >
+                                <div>
+                                    <input type="text" placeholder="请使用手机号登录" id="login_phone">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="box_input01 box_input02">
+                                <div>
+                                    <input type="password" placeholder="请输入6-12位登录密码" id="pwd">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="box_input03  box_input_03">
+                                <div>
+                                    <input type="text" class="user_input user_input_login">
+                                    <a href="javascript:;" class="createCode createCode_login">点击获取动态验证码</a>
+                                    <a href="javascript:;">看不清，换一张</a>
+                                    <span></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </li>
+                            <li class="box_input04 ">
+                                <div>
+                                    <input type="button" value="登录" class="login_button">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="login_box register_user hide" > <!-- 注册 -->
+                <div class="box_top">
+                    <ul >
+                        <li><a href="javascript:;" class="login_in">登录</a></li>
+                        <li><a href="javascript:;" class="login_in">注册</a></li>
+                    </ul>
+                </div>
+                <div class="box_body">
+                    <div class="box_phone">
+                        <div class="prompt"></div>
+                        <a href="">使用手机验证码注册</a>
+                    </div>
+                    <div class="box_input" id="user_register"><!-- 注册 -->
+                        <ul>
+                            <li class="box_input01" >
+                                <div>
+                                    <input type="text" placeholder="请使用手机号注册" id="register_phone">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="box_input01 box_input02">
+                                <div>
+                                    <input type="password" placeholder="请设置6-12位登录密码" id="pwd1">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="box_input01 box_input02">
+                                <div>
+                                    <input type="password" placeholder="确认登录密码" id="pwd2">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="box_input03 box_input05">
+                                <div>
+                                    <input type="text" class="user_input user_input_register">
+                                    <a href="javascript:;" class="createCode createCode_register">点击获取手机验证码</a>
+                                    <span></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </li>
+                            <li class="box_input04 ">
+                                <div>
+                                    <input type="button" value="立即注册" class="register_button">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--登录页脚-->
+    <div id="login_foot">
+        <div class="foot_pic">
+            <img src="image/sbj.jpg" alt="">
+        </div>
+        <div class="foot">
+            <p>免责声明：本站非任何杂志官网，仅限于收集整理互联网学术资源信息，直投稿件请联系杂志社 蜀ICP备09010985号-13 公安部备案：51092202000203</p>
+        </div>
+    </div>
+</main>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/header.js"></script>
+<script src="js/register.js"></script>
+<script src="js/login.js"></script>
+<script>
+    //验证电话号码
+    var $phone = $(".box_input>ul>li:first-child>div>input");
+    $phone.blur(function(){
+        vali(this,/^1[3-8]\d{9}$/)
+    })
+    function vali(txt,reg){
+        //用reg测试当前文本框的内容
+        //如果通过,就修改div的class为vali_success
+        if(reg.test(txt.value)){
+            $phone.next().html(`<img src='image/ok.png'>`);
+        }
+        //否则修改div的class为vali_fail
+        else{
+            $phone.next().html(`<img src='image/err.png'>电话号码格式错误`);
+        }
+    }
+
+    //注册页页验证是否存在这个电话号注册的用户
+    $("#register_phone").blur(function(){
+        var phone = $("#register_phone").val(); 
+        $.ajax({
+            url:"http://127.0.0.1:3000/user/registerphone?phone="+phone,
+            type:"get",
+            dataType:"json",
+        }).then((res)=>{
+            $phone.next().html(`<img src='image/err.png'> `+ res.msg);
+        })
+    })
+
+    //验证密码格式
+    var $upwd =  $(".box_input>ul>li:nth-child(2)>div>input");
+    $upwd.blur(function(){
+        vali1(this,/^\w{6,12}$/)
+    })
+    function vali1(txt,reg){
+        //用reg测试当前文本框的内容
+        //如果通过,就修改div的class为vali_success
+        if(reg.test(txt.value)){
+            $upwd.next().html(`<img src='image/ok.png'>`);
+        }
+        //否则修改div的class为vali_fail
+        else{
+            $upwd.next().html(`<img src='image/err.png'>密码格式错误`);
+        }
+    }
+
+    //验证两次输入的密码是否相同
+    var a =$("#pwd1")
+    var b =$("#pwd2")
+    var $p = $("#user_register>ul>li:nth-child(3)>div>input")
+    $p.blur(
+        function(){
+            if( a.val() !== b.val() ){
+                $p.next().html(`<img src='image/err.png'>两次输入密码不同`)
+            }else if(b.val().length<1){
+                $p.next().html(`<img src='image/err.png'>密码不能为空`)
+            }else{
+                $p.next().html(`<img src='image/ok.png'>`)
+            }
+        }
+    )
+
+    //点击切换为登录或者注册页面
+    $(".login_in").click(function(){
+        var a=$(this).html();
+        if(a=="注册"){
+            $(".login_user").addClass("hide").siblings().removeClass("hide");
+            $("span").html(null);
+        }else{
+            $(".register_user").addClass("hide").siblings().removeClass("hide");
+            $("span").html(null);
+        }   
+    })
+
+     // 验证验证码
+     $(".user_input_register").keyup(function(){
+        var $html = $(".createCode_register").html();
+        var $swit = $(this).val();
+         console.log($html)
+        // if(!$swit){
+        //     $(this).next().next().html(`<img src='image/err.png'>验证码不能为空`);
+        // }else 
+        if( $swit.toLowerCase() == $html.toLowerCase() ){
+            $(".createCode_register").next().html(`<img src='image/ok.png'>`);
+        }else{
+            $(".createCode_register").next().html(`<img src='image/err.png'>验证码输入错误`);
+        }
+    })
+    //enter快捷登录
+    $(".user_input_register").keyup(function(e){
+        e.preventDefault();
+        if(e.keyCode == 13){
+            $(".register_button").click();
+        }
+    })
+
+    $(".user_input_login").keyup(function(e){
+        e.preventDefault();
+        if(e.keyCode == 13){
+            $(".login_button").click();
+        }
+    })
+
+    //注册页按钮
+    $(".register_button").click(function(e){
+        e.preventDefault();
+        console.log( $phone.next().html() == '<img src="image/ok.png">' )
+        console.log ( $upwd.next().html() == '<img src="image/ok.png">') 
+        console.log (  $p.next().html() == '<img src="image/ok.png">'  ) 
+        console.log ( $(".createCode_register").next().next().html() )
+        //== '<img src="image/ok.png">')
+        if( $phone.next().html() == '<img src="image/ok.png">' && 
+            $upwd.next().html() == '<img src="image/ok.png">' &&
+            $p.next().html() == '<img src="image/ok.png">'    &&
+            $(".createCode_register").next().html() == '<img src="image/ok.png">'){
+            var phone = $("#register_phone").val();
+            var upwd = $("#pwd1").val();
+            $.ajax({
+                url:"http://127.0.0.1:3000/user/register?phone="+phone+"&upwd="+upwd,
+                type:"get",
+                dataType:"json",
+            }).then(result=>{
+                if(result.code == 1){
+                    alert(result.msg); 
+                    window.location.href="http://127.0.0.1:5500/user_register.html";
+                }else{
+                    //alert(result.msg)
+                }
+            })
+        }   
+    })
+
+    //登录页按钮
+    $(".login_button").click(function(e){
+        e.preventDefault();
+        if($phone.next().html() == '<img src="image/ok.png">' && 
+            $upwd.next().html() == '<img src="image/ok.png">' &&
+            $(".createCode_login").next().next().html() == '<img src="image/ok.png">'){
+                var phone = $("#login_phone").val();
+                var upwd = $("#pwd").val();
+                $.ajax({
+                    url:"http://127.0.0.1:3000/user/login?phone="+phone+"&upwd="+upwd,
+                    type:"get",
+                    dataType:"json",
+                }).then(result=>{
+                    console.log(result)
+                    console.log(result.code)
+                    if(result.code == 1){
+                        sessionStorage.setItem("code",result.code);
+                        sessionStorage.setItem("phone",result.data.phone);
+                        sessionStorage.setItem("uid",result.data.uid);
+                       //console.log(phone,uid)
+                        setTimeout(function(){
+            window.location.href="http://127.0.0.1:5500/index.html";},1000)
+                    }else{
+                        alert(result.msg)
+                    }
+            })
+        }
+    })
+
+    
+</script>
+</body>
+</html>
